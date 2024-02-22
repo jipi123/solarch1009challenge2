@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: keno-mongo-deployment
+  name: keno-nginx-deployment
   labels:
-    app: mongo
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: db
+      app: nginx
   template:
     metadata:
       labels:
-        app: db
+        app: nginx
     spec:
       containers:
-      - name: mongo
-        image: mongo
+      - name: nginx
+        image: nginx
         ports:
         - containerPort: 80
